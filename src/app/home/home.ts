@@ -1,6 +1,6 @@
 import { Component,inject } from '@angular/core';
 import { HousingLocation } from '../housing-location/housing-location';
-import {Housinglocationinfo} from '../housinglocationinfo';
+import {HousingLocationInfo} from '../housinglocationinfo';
 import {HousingService} from '../housing-service';
 
 
@@ -12,13 +12,16 @@ import {HousingService} from '../housing-service';
 })
 
 export class Home{
+  [x: string]: any;
 // readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
-housingLocationList: Housinglocationinfo[] = [];
+housingLocationList: HousingLocationInfo[] = [];
 // Injecting HousingService into the Component
 housingService: HousingService = inject(HousingService);
+  housingLocationId: number;
 constructor(){
 //setting housingLocationlist to the data array in HousingService
-this.housingLocationList = this.housingService.getAllHousingLocations();
+this.housingLocationList = this.housingService['getAllHousingLocations']();
+this.housingLocationId = Number(this['route'].snapshot.params["id"]);
 }
 }
 
