@@ -9,7 +9,7 @@ component: Home,
 title: 'Home page',
 },
 {
-path: 'details',
+path: 'details/:id',
 component: Details,
 title: 'Home Details'
 }
